@@ -1,0 +1,26 @@
+.main{
+    background-color: rgb(255, 255, 255);
+}
+
+.card{
+    width: 175px;
+    height: 384px;
+    margin: 30px;   
+}
+.heading{
+    margin-top: 26px;
+}
+
+.com{
+    margin: auto;
+    padding: 100px;
+}
+
+.dash{
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+    border: none;
+    margin-left: 0;
+    margin-bottom: 0;
+}
+
