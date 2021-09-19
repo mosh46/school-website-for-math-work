@@ -1,9 +1,10 @@
 <?php
 
 $server = "localhost";
-$username = "root";
-$password = "";
-$db = "alkhairmath";
+$username = "id17541431_alkhairmath1";
+$password = "e!(q^)2x2dmCSvQ=";
+$db = "id17541431_alkhairmath";
+
 
 // Create a database connection
 $con = mysqli_connect($server, $username, $password, $db);
@@ -16,6 +17,8 @@ if (!$con) {
 }
 $user = $_POST['user'];
 $pass = $_POST['pass'];
+
+$result = mysqli_query($con, "SELECT * FROM comment");
 
 if ($pass == "iamuzair@alkhairmath123"  and $user == "uzair3w3@gmail.com") { ?>
     <!doctype html>
@@ -50,9 +53,8 @@ if ($pass == "iamuzair@alkhairmath123"  and $user == "uzair3w3@gmail.com") { ?>
 
     <body>
         <h1>Dashboard</h1>
-        <h4>no of posts you Uploaded</h4>
         <div class="container">
-            <form action="upload.php" method="post" enctype="multipart/form-data" class="upload">
+            <form action="uploader.php" method="post" enctype="multipart/form-data" class="upload">
                 <h1>upload new work</h1>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">YOUR NAME</span>
@@ -83,32 +85,30 @@ if ($pass == "iamuzair@alkhairmath123"  and $user == "uzair3w3@gmail.com") { ?>
             </form>
         </div>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">email</th>
-                    <th scope="col">message</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry the Bird</td>
-                    <td>Larry the Bird</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="com">
+            <table class='table'>
+                <thead>
+
+                    <th scope='col'>#</th>
+                    <th scope='col'>email</th>
+                    <th scope='col'>message</th>
+                    <th scope='col'>date</th>
+
+                </thead>
+                <?php
+                while ($row = mysqli_fetch_array($result)) {
+                    echo "<tbody>";
+
+                    echo "<td> " . $row['sr.no'] . " </td>";
+                    echo "<td> " . $row['email'] . " </td>";
+                    echo "<td> " . $row['comment'] . " </td>";
+                    echo "<td> " . $row['dt'] . " </td>";
+
+
+                    echo "</tbody>";
+                }
+                ?>
+            </table>
         
         <div style="text-align: center;color:white;" class="container-fluid bg-dark mb-0">all rights reserved</div>
 
